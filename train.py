@@ -155,7 +155,7 @@ class Trainer():
 
             if epoch==0:
                 v1= records['V']
-                self.k = 3.7-v1#RSD4.2
+                self.k = 3.7-v1#DAGN-1,6:6.7
             print( self.k)
 
 
