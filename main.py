@@ -42,15 +42,15 @@ def config():
     parser.add_argument('--multi-gpu', action='store_true')
     parser.add_argument('--num-dataloaders', type=int, default=mp.cpu_count())
 
-    parser.add_argument('--co-w', type=int, default=0.01)
+    parser.add_argument('--co-w', type=int, default=0.01)#COVID DAGN-1,6: 0.5
     parser.add_argument('--lo-w', type=int, default=0.5)
-    parser.add_argument('--lc', type=int, default= 0.009)
-    parser.add_argument('--lf', type=int, default= 0.9999)
+    parser.add_argument('--lc', type=int, default= 0.009)#COVID 0.001, DAGN-1,6: 0.01
+    parser.add_argument('--lf', type=int, default= 0.9999))#COVID 0.009, DAGN-1,6: 0.9999
 
     parser.add_argument('--seed', type=int, default=2019)#2019
     parser.add_argument('--num-epochs', type=int, default=150)
-    parser.add_argument('--batch-size', type=int, default=32)#8
-    parser.add_argument('--lr', type=float, default=3e-4)#2e-43e-3#3e-4
+    parser.add_argument('--batch-size', type=int, default=32)#COVID:16
+    parser.add_argument('--lr', type=float, default=3e-4)#COVID 2e-4, DAGN-1:5e-4,DAGN-6:1e-4,
     parser.add_argument('--weight-decay', type=float, default=1e-4)
     parser.add_argument('--cls-loss-coef', type=float, default=0.0)
     parser.add_argument('--entropy-loss-coef', type=float, default=0.0002)#0.0002
@@ -110,7 +110,7 @@ def grab_data(data_path, data_label, config, is_train):
 
     tr_transforms, ts_transforms = transforms.Compose([#RSD:RAN+RESIZE128
         # transforms.RandomHorizontalFlip(),
-        transforms.Resize(224),
+        transforms.Resize(224),#COVID(160,280)#DAGN-1,6 NO
         transforms.ToTensor(),
         normalize,
 
