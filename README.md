@@ -1,5 +1,7 @@
 # PMRN
-Unsupervised Anomaly Detection with Patch-aware Mutual Reasoning Network for Pavement Defects
+Unsupervised defect detection with patch-aware mutual reasoning network in image data
+
+
 
 
 
